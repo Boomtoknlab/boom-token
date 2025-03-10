@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Hardhat
+/artifacts/
+/cache/
+/node_modules/.bin/
+
+# Environment Variables
+.env
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Build output
+/dist/
+/build/
+/coverage/
+
+# Dependency directories
+/.pnp/
+/.pnp.js
+
+# Logs
+*.log
+
+# Debug
+*.tgz
+
+# Temporary files
+*.swp
+*.swo
+
+# Operating System specific files
+*.bak
+*.tmp
