@@ -42,7 +42,7 @@ Boom Token is deployed on the following blockchains:
   Pool Address: `0x9090f998bCAB813B297992D01CdbFBB287954E73`
 
 - **PancakeSwap (BSC) Pool Address**:  
-  Pool Address: `0x...`
+  Pool Address: `0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82`
 
 ---
 
