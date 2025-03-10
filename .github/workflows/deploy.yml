@@ -1,0 +1,30 @@
+name: Deploy Boom Token
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          
+      - name: Deploy Boom Token to Base Network
+        run: |
+          npx hardhat run scripts/deploy.js --network base
+
+      - name: Deploy Boom Token to BSC Network
+        run: |
+          npx hardhat run scripts/deploy.js --network bsc
