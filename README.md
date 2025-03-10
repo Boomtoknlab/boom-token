@@ -1,36 +1,36 @@
 # Boom Token 🚀
 
-Boom Token is an innovative **ERC-20** token designed to revolutionize the world of **decentralized finance (DeFi)** with its robust features. Boom Token is engineered to offer secure, scalable, and cross-chain liquidity solutions, enabling seamless integration into decentralized exchanges, bridges, and smart contracts.
+Boom Token is a cutting-edge **ERC-20** token designed to transform the decentralized finance (DeFi) ecosystem with its robust, scalable features. Boom Token aims to integrate seamlessly into decentralized exchanges, cross-chain liquidity bridges, and provide users with secure token interactions.
 
 ---
 
 ## 🌐 Features & Capabilities
 
 ### 1. **Cross-Chain Bridge Integration**
-Boom Token leverages **Celer cBridge** to facilitate seamless transfers across multiple blockchains. This allows users to move tokens between different networks, such as **Base**, **BSC**, and **Ethereum**.
+Boom Token leverages **Celer cBridge** to facilitate seamless token transfers across multiple blockchains, ensuring liquidity and ease of access for users on different networks like **Base**, **BSC**, and **Ethereum**.
 
-- **Base ↔ BSC ↔ Ethereum**: Cross-chain liquidity and token transfers are powered by **cBridge**, providing fast and low-cost bridging solutions.
-- **Wrapped Boom Token (BEP-20)**: A wrapped version of Boom Token deployed on the **BSC** network to provide better liquidity on PancakeSwap.
+- **Base ↔ BSC ↔ Ethereum**: Efficient cross-chain liquidity and token transfers powered by **cBridge**.
+- **Wrapped Boom Token (BEP-20)**: A **BEP-20** token deployed on the **BSC** network, pegged 1:1 with Boom Token’s ERC-20 version on the Base network.
 
 ### 2. **Liquidity Management**
-Boom Token supports **liquidity pool integration** on leading decentralized exchanges (DEXs) like **Uniswap** (for Base network) and **PancakeSwap** (for BSC network), ensuring deeper liquidity and optimized trading pairs.
+Boom Token integrates with leading decentralized exchanges (DEXs) such as **Uniswap** (Base) and **PancakeSwap** (BSC), allowing for deeper liquidity and efficient trading.
 
-- **Uniswap (Base)**: Boom Token’s listing allows users to trade Boom Token seamlessly on the **Base** network.
-- **PancakeSwap (BSC)**: Boom Token’s **BEP-20** token ensures it is easily tradable with **WBNB** on **PancakeSwap**.
+- **Uniswap (Base)**: Boom Token can be traded seamlessly on the **Base** network.
+- **PancakeSwap (BSC)**: Boom Token’s **BEP-20** version is integrated into the **WBNB** liquidity pool on **PancakeSwap**.
 
 ### 3. **Tokenomics & Governance**
-Boom Token uses a community-driven governance model, where the token supply is distributed for long-term growth, liquidity provisioning, and ecosystem development.
+Boom Token supports a community-driven governance model that ensures decentralized decision-making. Tokenomics are designed to incentivize long-term growth, staking, and liquidity provisioning.
 
 - **Total Supply**: 1,000,000,000 BOOM
-- **Initial Circulating Supply**: 200,000,000 BOOM (20%)
+- **Initial Circulating Supply**: 20% (200,000,000 BOOM)
 - **Reserved for Liquidity**: 30% (300,000,000 BOOM)
 - **Community Growth & Partnerships**: 35% (350,000,000 BOOM)
 - **Team & Advisors**: 15% (150,000,000 BOOM)
 
-Boom Token holders can participate in governance by voting on proposals related to token upgrades, liquidity distribution, or other ecosystem developments.
+Holders of Boom Token can participate in governance by voting on proposals that impact the token's future development and ecosystem growth.
 
 ### 4. **Contract Addresses**
-Below are the contract addresses for **Boom Token** on **Base** and **BSC** networks:
+Boom Token is deployed on the following blockchains:
 
 - **Boom Token (Base)**:  
   Contract Address: `0x02C9974C9f3E3D96E8acF8c8eb9C46e19125630a`
@@ -42,15 +42,20 @@ Below are the contract addresses for **Boom Token** on **Base** and **BSC** netw
   Pool Address: `0x9090f998bCAB813B297992D01CdbFBB287954E73`
 
 - **PancakeSwap (BSC) Pool Address**:  
-  Pool Address: `0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82`
+  Pool Address: `0x...`
 
 ---
 
-## ⚡ Installation & Setup
+## ⚡ Installation & Setup (Using Alpine Linux)
 
-### 1. Clone the repository
-First, clone this repository to your local machine to get started with Boom Token’s codebase.
+**Alpine Linux** is a lightweight distribution that is ideal for deploying and managing Boom Token on decentralized platforms. This section covers the process of setting up **Alpine Linux** for smart contract deployment.
+
+### 1. Install Alpine Linux
+
+You can use **Alpine Linux** directly or within a **Docker** container for a minimal and efficient setup.
+
+#### Alpine Docker Example:
 
 ```bash
-git clone https://github.com/Boomtoknlab/boom-token.git
-cd boom-token
+docker pull alpine:latest
+docker run -it alpine:latest /bin/sh
