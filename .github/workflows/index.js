@@ -1,38 +1,51 @@
-require('dotenv').config(); // Only if you use .env locally
+// Import required libraries
 const { ethers } = require('ethers');
+require('dotenv').config();
 
-// Access the secrets via environment variables
-const BASE_RPC_URL = process.env.BASE_RPC_URL;
-const BSC_RPC_URL = process.env.BSC_RPC_URL;
+// Set up your Infura URL, private key, and contract address using environment variables
+const INFURA_URL = process.env.INFURA_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
+const BOOM_TOKEN_CONTRACT_ADDRESS = process.env.BOOM_TOKEN_CONTRACT_ADDRESS;
 
-// Define your network provider (Base and BSC)
-const baseProvider = new ethers.JsonRpcProvider(BASE_RPC_URL);
-const bscProvider = new ethers.JsonRpcProvider(BSC_RPC_URL);
+// Connect to the Ethereum network using Infura
+const provider = new ethers.JsonRpcProvider(INFURA_URL);
 
-// Define your wallet
-const wallet = new ethers.Wallet(PRIVATE_KEY);
+// Initialize wallet with the private key
+const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
 
-// Interact with Base Mainnet (Example: Get balance of a specific address)
-async function interactWithBase() {
-  const baseAddress = '0xYourAddressHere'; // Replace with actual address
-  const balance = await baseProvider.getBalance(baseAddress);
-  console.log(`Base Mainnet Balance: ${ethers.utils.formatEther(balance)} ETH`);
+// Create a contract instance for Boom Token
+const abi = [
+    "function balanceOf(address owner) view returns (uint256)",
+    "function transfer(address recipient, uint256 amount) public returns (bool)",
+];
+
+const boomTokenContract = new ethers.Contract(BOOM_TOKEN_CONTRACT_ADDRESS, abi, wallet);
+
+// Example function to check the balance of an address
+async function checkBalance(address) {
+    try {
+        const balance = await boomTokenContract.balanceOf(address);
+        console.log(`Balance of ${address}: ${ethers.utils.formatUnits(balance, 18)} BOOM`);
+    } catch (error) {
+        console.error("Error fetching balance:", error);
+    }
 }
 
-// Interact with BSC (Example: Get balance of a specific address)
-async function interactWithBSC() {
-  const bscAddress = '0xYourAddressHere'; // Replace with actual address
-  const balance = await bscProvider.getBalance(bscAddress);
-  console.log(`BSC Balance: ${ethers.utils.formatEther(balance)} BNB`);
+// Example function to send tokens
+async function sendTokens(toAddress, amount) {
+    try {
+        const tx = await boomTokenContract.transfer(toAddress, ethers.utils.parseUnits(amount, 18));
+        console.log(`Transaction hash: ${tx.hash}`);
+        await tx.wait();
+        console.log(`Transaction confirmed. ${amount} BOOM sent to ${toAddress}`);
+    } catch (error) {
+        console.error("Error sending tokens:", error);
+    }
 }
 
-// Main function to run interactions
-async function main() {
-  await interactWithBase();
-  await interactWithBSC();
-}
+// Use the functions (Example)
+const recipientAddress = '0xRecipientAddressHere'; // Replace with the recipient address
+const amountToSend = '10'; // Amount of tokens to send (adjust as needed)
 
-main().catch((error) => {
-  console.error(error);
-});
+checkBalance(wallet.address);
+sendTokens(recipientAddress, amountToSend);
